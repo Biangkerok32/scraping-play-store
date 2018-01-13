@@ -51,12 +51,10 @@ public class ScrapingStore {
         this.linkImgs = linksFull;
     }
 
-    public List<AppDescription> getAppsDescription(){
+    public List<AppDescription> getAppsDescription() {
         List<AppDescription> apps = new ArrayList<>();
 
-        scrapingStore.generateNameApps();
-        scrapingStore.generateLinks();
-        scrapingStore.generateLinksImgagen();
+        execMethodsGenerators();
 
         for (int i = 0; i < this.appsNames.size(); i++) {
             apps.add(
@@ -65,5 +63,11 @@ public class ScrapingStore {
         }
 
         return apps;
+    }
+
+    private void execMethodsGenerators() {
+        scrapingStore.generateNameApps();
+        scrapingStore.generateLinks();
+        scrapingStore.generateLinksImgagen();
     }
 }
